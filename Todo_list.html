@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>ToDoList</title>
+    <script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+    <script src="Todo_list.js"></script>
+    <link rel="stylesheet" href="Todo_list.css">
+  </head>
+  <body>
+    <div id="inputform">
+    <form method="post" onsubmit="crateTask(); return false;">
+		<p>
+			タスク名：<input type="text" id="title" name="title" size="40" maxlength="20">
+		</p>
+        <p>
+            重要度：<input type="number" id="urgency" name="urgency" min=1 max=5>
+ 		</p>
+        <p>
+             締切：<input type="date" id="date" name="date">
+        </p>
+		<p>
+			メモ：<input type="text" id="memo" name="memo" cols="160" maxlength="80">
+		</p>
+		<p>
+			<input type="submit" value="submit"><input type="reset" value="reset">
+		</p>
+        
+        </div>
+	</form>
+        <table id="todo_table" class="todo_table">
+         <thead>
+          <tr>
+            <th>タイトル</th>
+            <th>締切</th>
+            <th>重要度</th>
+            <th>メモ</th>
+            <th></th>
+           </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+
+</body>
+</html>
