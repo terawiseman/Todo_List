@@ -90,6 +90,11 @@ function addToDoList(_texts){
   $("#todo_table tbody").eq(0).after(htmlTableRowf(_texts));
 }
 
+// 文字をエスケープする
+function escapeText(text) {
+  return $("<div>").text(text).html();
+}
+
 /**
  *getTask()から得た文字列（タイトル）がすでに登録されているモノかどうか判断する
  * @param _texts getTask()から得た文字列
@@ -105,6 +110,7 @@ function chackToDo(_texts){
       alert("同じタイトルは避けてください");
 	return false;  
   }
+  
     if (80 < _texts[3].length) {
     alert("メモは80字にしてください");
     return false;
@@ -145,7 +151,8 @@ function htmlTableRowf(_texts){
  * @param _texts getTask()から得た文字列
 **/
 function saveStorageToDo(_texts){
-	localStorage.setItem(_texts[0],JSON.stringify(_texts));	
+	var val = escapeText(JSON.stringify(_texts));
+	localStorage.setItem(_texts[0],escape(val));	
 }
 
 /**
